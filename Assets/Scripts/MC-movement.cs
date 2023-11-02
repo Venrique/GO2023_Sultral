@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
+    public GameObject BulletPrefab;
+
     public float moveSpeed = 5.0f; // Adjust this to control the player's movement speed.
     
     private Camera mainCamera;
@@ -11,6 +13,7 @@ public class NewBehaviourScript : MonoBehaviour
     void Start()
     {
         mainCamera = Camera.main;
+        InvokeRepeating("Shoot", 0.5f, 0.5f);  //1s delay, repeat every 1s
     }
 
     void Update()
@@ -24,5 +27,10 @@ public class NewBehaviourScript : MonoBehaviour
 
         // Move the player towards the mouse cursor
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+    }
+
+    private void Shoot(){
+        Instantiate(BulletPrefab, transform.position, Quaternion.identity);
     }
 }
