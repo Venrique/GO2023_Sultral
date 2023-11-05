@@ -221,7 +221,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 2924482694940885227, guid: 61aafc3187d54b148a1b3d7d8ea4ef10, type: 3}
-  moveSpeed: 5
+  playerTransform: {fileID: 266336674}
+  fireRate: 0.6
+  rightOrUp: 8
+  leftOrDown: -8
+  diagonal: 0.7
+  numberOfBullets: 3
+  moveSpeed: 15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

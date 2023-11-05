@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    public float speed;
+    [Range(1, 10)]
+    [SerializeField] private float speed = 5f;
     private Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void FixedUpdate()
+    {
+        rb.velocity = transform.up * speed;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = Vector2.right * speed;
+
+    }
+
+    void OnBecameInvisible()
+    {
+        Destroy(gameObject);
     }
 }
