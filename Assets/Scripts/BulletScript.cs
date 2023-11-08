@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
-    [Range(1, 10)]
-    [SerializeField] private float speed = 5f;
+    [Range(1, 20)]
+    [SerializeField] private float speed = 17f;
     private Rigidbody2D rb;
 
     // Start is called before the first frame update

@@ -5,26 +5,35 @@ using UnityEngine;
 public class NewBehaviourScript : MonoBehaviour
 {
     //Gun variables
-    [SerializeField] private GameObject BulletPrefab;
-    [SerializeField] private Transform BulletSpawn1;
-    [SerializeField] private Transform BulletSpawn2;
-    [SerializeField] private Transform BulletSpawn3;
-    [SerializeField] private Transform BulletSpawn4;
-    //[Range(0.1f, 1f)]
-    //[SerializeField] private float fireRate = 0.5f;
+    [SerializeField] public GameObject BulletPrefab;
 
-    public Transform playerTransform; // Assign the player object in the Inspector
+    public enum BulletType
+    {
+        bass1, bass2, bass3, bass4, bass5, bass6, bass7, mids1, mids2, mids3, mids4, mids5, mids6, treble1, treble2, treble3, treble4, treble5, treble6, treble7  
+    };
 
-    public int numberOfBullets = 1; // Adjust this to control the number of bullets fired at once.
+    public BulletType bulletType;
+    public float fireRate = 1f;
 
     public float moveSpeed = 5.0f; // Adjust this to control the player's movement speed.
 
     private Camera mainCamera;
 
+    private float lastSpawned;
+
+    public bool up;
+    public bool down;
+    public bool left;
+    public bool right;
+    public bool upLeft;
+    public bool upRight;
+    public bool downLeft;
+    public bool downRight;
+
     void Start()
     {
         mainCamera = Camera.main;
-        InvokeRepeating("Shoot", 0.5f, 0.5f);
+        //InvokeRepeating("Shoot", 0.5f, fireRate);
     }
 
     void Update()
@@ -33,16 +42,66 @@ public class NewBehaviourScript : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
 
         // Convert the screen position to a world position on the same plane as the player
-        mousePosition.z = playerTransform.position.z - mainCamera.transform.position.z;
+        mousePosition.z = transform.position.z - mainCamera.transform.position.z;
         Vector3 targetPosition = mainCamera.ScreenToWorldPoint(mousePosition);
 
         // Move the player towards the mouse cursor
-        playerTransform.position = Vector3.MoveTowards(playerTransform.position, targetPosition, moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+
+
+
+        if (Time.time - lastSpawned > fireRate)
+        {
+            lastSpawned = Time.time;
+            Shoot();
+        }
 
     }
 
     private void Shoot()
     {
+
+        if (up)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 0));
+        }
+
+        if (down)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 180));
+        }
+
+        if (left)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 90));
+        }
+
+        if (right)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 270));
+        }
+
+        if (upLeft)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 45));
+        }
+
+        if (upRight)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 315));
+        }
+
+        if (downLeft)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 135));
+        }
+
+        if (downRight)
+        {
+            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 225));
+        }
+
+        /*
         switch (numberOfBullets)
         {
             case 1:
@@ -64,12 +123,7 @@ public class NewBehaviourScript : MonoBehaviour
                 Instantiate(BulletPrefab, BulletSpawn4.position, BulletSpawn4.rotation);
                 break;
         }
-        /*
-        Instantiate(BulletPrefab, BulletSpawn1.position, BulletSpawn1.rotation);
-        Instantiate(BulletPrefab, BulletSpawn2.position, BulletSpawn2.rotation);
-        Instantiate(BulletPrefab, BulletSpawn3.position, BulletSpawn3.rotation);
-        Instantiate(BulletPrefab, BulletSpawn4.position, BulletSpawn4.rotation);
         */
     }
-    
+
 }
