@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Movement : MonoBehaviour
 {
     //Gun variables
     [SerializeField] public GameObject BulletPrefab;
 
-    public enum BulletType
+    public enum BulletFrequency
     {
         bass1, bass2, bass3, bass4, bass5, bass6, bass7, mids1, mids2, mids3, mids4, mids5, mids6, treble1, treble2, treble3, treble4, treble5, treble6, treble7  
     };
 
-    public BulletType bulletType;
-    public float fireRate = 1f;
+    public BulletFrequency bulletFrequency;
+    public float fireRate;
 
-    public float moveSpeed = 5.0f; // Adjust this to control the player's movement speed.
+    public float moveSpeed; // Adjust this to control the player's movement speed.
 
     private Camera mainCamera;
 

@@ -19,12 +19,6 @@ public class BulletScript : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     void OnBecameInvisible()
     {
         Destroy(gameObject);
