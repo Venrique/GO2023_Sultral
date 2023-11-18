@@ -11,7 +11,7 @@ public class RoomData
         WALLS
     }
 
-    public int speed;
+    public float speed;
     public bool complete = false;
     public bool coin = false;
     public bool end = false;
@@ -26,7 +26,7 @@ public class RoomData
     public bool doorUp = false;
     public bool doorDown = false;
 
-    public RoomData(int depth, int speed)
+    public RoomData(int depth, float speed)
     {
         this.depth = depth;
         this.speed = speed;

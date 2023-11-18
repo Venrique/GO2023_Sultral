@@ -11,6 +11,7 @@ public class LevelGenerator : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject room;
+    [SerializeField] private AudioPeer musicPlayer;
 
     private int size = 10;
     private int roomsTarget = 30;
@@ -33,7 +34,7 @@ public class LevelGenerator : MonoBehaviour
 
         int x = Random.Range(0, size);
         int y = Random.Range(0, size);
-        RoomData startingRoom = new RoomData(0, 1);
+        RoomData startingRoom = new RoomData(0, 1.0f);
         addRoom(startingRoom, x, y);
         edgeRooms.Enqueue(startingRoom);
 
@@ -68,7 +69,7 @@ public class LevelGenerator : MonoBehaviour
                 {
                     int spotIndex = Random.Range(0, roomSpots.Count);
                     SpawnLocation randomSpot = roomSpots[spotIndex];
-                    RoomData newRoom = new RoomData(edgeRoom.depth + 1, 1);
+                    RoomData newRoom = new RoomData(edgeRoom.depth + 1, Random.Range(0.5f, 1.5f));
                     int newRoomX = roomX;
                     int newRoomY = roomY;
                     switch (randomSpot)
@@ -128,6 +129,8 @@ public class LevelGenerator : MonoBehaviour
         bool roomLeft = roomData.doorLeft;
         roomScript.setDoors(roomUp, roomDown, roomRight, roomLeft, x, y, showRoom);
         roomScript.setObstacle(roomData.obstacle);
+
+        musicPlayer.ChangePitch(roomData.speed);
 
         switch (spawnLocation)
         {

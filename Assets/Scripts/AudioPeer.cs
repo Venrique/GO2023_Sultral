@@ -44,6 +44,11 @@ public class AudioPeer : MonoBehaviour
         speedTarget = Random.Range(0.5f, 1.5f);
     }
 
+    public void ChangePitch(float pitch)
+    {
+        speedTarget = pitch;
+    }
+
     void MakeFrequencyBands(){
         int count = 0;
         for (int i = 0; i < 8; i++){
