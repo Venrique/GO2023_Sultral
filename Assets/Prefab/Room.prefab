@@ -2528,6 +2528,7 @@ MonoBehaviour:
   doorRight: {fileID: 2918357954311754544}
   doorLeft: {fileID: 1082026161019197111}
   block: {fileID: 2249489748514791629, guid: b43fec41dbce4be44aecd1805f960c7e, type: 3}
+  wall: {fileID: 2249489748514791629, guid: ffc4ef6e6df774246897efae894b8638, type: 3}
 --- !u!1 &7862584949558375070
 GameObject:
   m_ObjectHideFlags: 0

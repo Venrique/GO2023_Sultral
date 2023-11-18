@@ -21,6 +21,7 @@ public class RoomScript : MonoBehaviour
     [SerializeField] private GameObject doorLeft;
 
     [SerializeField] private GameObject block;
+    [SerializeField] private GameObject wall;
 
     // Start is called before the first frame update
     void Start()
@@ -106,6 +107,10 @@ public class RoomScript : MonoBehaviour
                 instantiateObject(block, 3, -1.5f);
                 instantiateObject(block, -3, 1.5f);
                 instantiateObject(block, -3, -1.5f);
+                break;
+            case (RoomData.Obstacle.WALLS):
+                instantiateObject(wall, 3.5f, 1.5f);
+                instantiateObject(wall, -3.5f, -1.5f);
                 break;
         }
     }

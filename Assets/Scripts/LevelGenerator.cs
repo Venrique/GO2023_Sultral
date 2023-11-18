@@ -35,6 +35,7 @@ public class LevelGenerator : MonoBehaviour
         int x = Random.Range(0, size);
         int y = Random.Range(0, size);
         RoomData startingRoom = new RoomData(0, 1.0f);
+        startingRoom.obstacle = RoomData.Obstacle.WALLS;
         addRoom(startingRoom, x, y);
         edgeRooms.Enqueue(startingRoom);
 
@@ -67,9 +68,10 @@ public class LevelGenerator : MonoBehaviour
                 int numRooms = Mathf.Min(Random.Range(1, roomSpots.Count + 1), roomsTarget - generatedRooms);
                 for (int i = 0; i < numRooms; i++)
                 {
+                    RoomData newRoom = new RoomData(edgeRoom.depth + 1, Random.Range(0.5f, 1.5f));
+
                     int spotIndex = Random.Range(0, roomSpots.Count);
                     SpawnLocation randomSpot = roomSpots[spotIndex];
-                    RoomData newRoom = new RoomData(edgeRoom.depth + 1, Random.Range(0.5f, 1.5f));
                     int newRoomX = roomX;
                     int newRoomY = roomY;
                     switch (randomSpot)
@@ -95,6 +97,18 @@ public class LevelGenerator : MonoBehaviour
                             newRoom.doorDown = true;
                             break;
                     }
+
+                    RoomData.Obstacle obstacle = RoomData.Obstacle.NONE;
+                    int randomObstacle = Random.Range(1, 101);
+                    if (randomObstacle > 50)
+                    {
+                        obstacle = RoomData.Obstacle.BLOCKS;
+                    } else if (randomObstacle > 75)
+                    {
+                        obstacle = RoomData.Obstacle.WALLS;
+                    }
+                    newRoom.obstacle = obstacle;
+
                     addRoom(newRoom, newRoomX, newRoomY);
                     edgeRooms.Enqueue(newRoom);
                     roomSpots.Remove(randomSpot);
