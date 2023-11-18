@@ -20,6 +20,8 @@ public class RoomScript : MonoBehaviour
     [SerializeField] private GameObject doorRight;
     [SerializeField] private GameObject doorLeft;
 
+    [SerializeField] private GameObject block;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +59,7 @@ public class RoomScript : MonoBehaviour
             DoorScript door = doorUp.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX;
-            door.roomY = roomY + 1;
+            door.roomY = roomY - 1;
             door.spawnLocation = LevelGenerator.SpawnLocation.DOWN;
         }
         if (down)
@@ -68,7 +70,7 @@ public class RoomScript : MonoBehaviour
             DoorScript door = doorDown.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX;
-            door.roomY = roomY - 1;
+            door.roomY = roomY + 1;
             door.spawnLocation = LevelGenerator.SpawnLocation.UP;
         }
         if (right)
@@ -93,5 +95,25 @@ public class RoomScript : MonoBehaviour
             door.roomY = roomY;
             door.spawnLocation = LevelGenerator.SpawnLocation.RIGHT;
         }
+    }
+
+    public void setObstacle(RoomData.Obstacle obstacle)
+    {
+        switch (obstacle)
+        {
+            case (RoomData.Obstacle.BLOCKS):
+                instantiateObject(block, 3, 1.5f);
+                instantiateObject(block, 3, -1.5f);
+                instantiateObject(block, -3, 1.5f);
+                instantiateObject(block, -3, -1.5f);
+                break;
+        }
+    }
+
+    private void instantiateObject(GameObject gameObject, float x, float y)
+    {
+        GameObject instance = Instantiate(gameObject);
+        instance.transform.position = new Vector3(x, y, 0);
+        instance.transform.parent = this.transform;
     }
 }
