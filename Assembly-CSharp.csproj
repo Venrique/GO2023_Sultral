@@ -54,18 +54,21 @@
     <UnityVersion>2022.3.12f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Coin.cs" />
     <Compile Include="Assets\Scripts\BulletScript.cs" />
-    <Compile Include="Assets\SpeedBuff.cs" />
+    <Compile Include="Assets\Scripts\FireRateBuff.cs" />
     <Compile Include="Assets\Scripts\MC-movement.cs" />
-    <Compile Include="Assets\Powerup.cs" />
-    <Compile Include="Assets\PowerupEffect.cs" />
     <Compile Include="Assets\Scripts\ShotTimeTrigger.cs" />
+    <Compile Include="Assets\Scripts\SpeedBuff.cs" />
     <Compile Include="Assets\Scripts\DoorScript.cs" />
+    <Compile Include="Assets\Scripts\PowerupEffect.cs" />
+    <Compile Include="Assets\Scripts\Powerup.cs" />
     <Compile Include="Assets\Scripts\RoomData.cs" />
     <Compile Include="Assets\Scripts\LevelGenerator.cs" />
+    <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\Scripts\PlayerStatus.cs" />
     <Compile Include="Assets\Scripts\AudioPeer.cs" />
     <Compile Include="Assets\Scripts\RoomScript.cs" />
-    <Compile Include="Assets\FireRateBuff.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

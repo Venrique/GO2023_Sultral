@@ -2527,6 +2527,8 @@ MonoBehaviour:
   doorDown: {fileID: 7279947492072512966}
   doorRight: {fileID: 2918357954311754544}
   doorLeft: {fileID: 1082026161019197111}
+  coin: {fileID: 10970453031248259, guid: 632f3cd0df50ea94db6469f37bd4a1ed, type: 3}
+  exit: {fileID: 8076448448896203063, guid: af7ad71f896cdc14d8b88c634b6b9cea, type: 3}
   block: {fileID: 2249489748514791629, guid: b43fec41dbce4be44aecd1805f960c7e, type: 3}
   wall: {fileID: 2249489748514791629, guid: ffc4ef6e6df774246897efae894b8638, type: 3}
 --- !u!1 &7862584949558375070

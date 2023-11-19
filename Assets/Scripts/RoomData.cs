@@ -15,6 +15,7 @@ public class RoomData
     public bool complete = false;
     public bool coin = false;
     public bool end = false;
+    public bool start = false;
     public Obstacle obstacle = Obstacle.NONE;
 
     public int x;
@@ -30,5 +31,23 @@ public class RoomData
     {
         this.depth = depth;
         this.speed = speed;
+    }
+
+    public void setStartRoom()
+    {
+        this.start = true;
+        this.complete = true;
+    }
+
+    public void setEndRoom()
+    {
+        this.end = true;
+        this.complete = true;
+    }
+
+    public void setCoinRoom()
+    {
+        this.coin = true;
+        this.complete = true;
     }
 }

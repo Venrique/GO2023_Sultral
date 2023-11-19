@@ -20,22 +20,30 @@ public class RoomScript : MonoBehaviour
     [SerializeField] private GameObject doorRight;
     [SerializeField] private GameObject doorLeft;
 
+    [SerializeField] private GameObject coin;
+    [SerializeField] private GameObject exit;
+
     [SerializeField] private GameObject block;
     [SerializeField] private GameObject wall;
 
-    // Start is called before the first frame update
-    void Start()
+    public void setupRoom(RoomData roomData, Action<int, int, LevelGenerator.SpawnLocation> onEnter)
     {
-        
+        setDoors(roomData.doorUp, roomData.doorDown, roomData.doorRight, roomData.doorLeft, roomData.x, roomData.y, onEnter);
+        setObstacle(roomData.obstacle);
+
+        if (roomData.end)
+        {
+            instantiateObject(exit, 0f, 0f);
+        }
+        else if (roomData.coin)
+        {
+            GameObject coinObject = instantiateObject(coin, 0f, 0f);
+            Coin coinScript = coinObject.GetComponent<Coin>();
+            coinScript.room = roomData;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void setDoors(bool up, bool down, bool right, bool left, int roomX, int roomY, Action<int, int, LevelGenerator.SpawnLocation> onEnter)
+    private void setDoors(bool up, bool down, bool right, bool left, int roomX, int roomY, Action<int, int, LevelGenerator.SpawnLocation> onEnter)
     {
         wallUpSolid.SetActive(true);
         wallDownSolid.SetActive(true);
@@ -98,7 +106,7 @@ public class RoomScript : MonoBehaviour
         }
     }
 
-    public void setObstacle(RoomData.Obstacle obstacle)
+    private void setObstacle(RoomData.Obstacle obstacle)
     {
         switch (obstacle)
         {
@@ -115,10 +123,11 @@ public class RoomScript : MonoBehaviour
         }
     }
 
-    private void instantiateObject(GameObject gameObject, float x, float y)
+    private GameObject instantiateObject(GameObject gameObject, float x, float y)
     {
         GameObject instance = Instantiate(gameObject);
         instance.transform.position = new Vector3(x, y, 0);
         instance.transform.parent = this.transform;
+        return instance;
     }
 }

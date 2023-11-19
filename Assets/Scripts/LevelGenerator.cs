@@ -22,7 +22,6 @@ public class LevelGenerator : MonoBehaviour
 
     void Start() {
         RoomData startingRoom = generateLevel();
-        Debug.Log(startingRoom.x + " " + startingRoom.y);
         printRooms();
         showRoom(startingRoom.x, startingRoom.y, SpawnLocation.CENTER);
     }
@@ -35,6 +34,7 @@ public class LevelGenerator : MonoBehaviour
         int x = Random.Range(0, size);
         int y = Random.Range(0, size);
         RoomData startingRoom = new RoomData(0, 1.0f);
+        startingRoom.setStartRoom();
         startingRoom.obstacle = RoomData.Obstacle.WALLS;
         addRoom(startingRoom, x, y);
         edgeRooms.Enqueue(startingRoom);
@@ -70,8 +70,7 @@ public class LevelGenerator : MonoBehaviour
                 {
                     RoomData newRoom = new RoomData(edgeRoom.depth + 1, Random.Range(0.5f, 1.5f));
 
-                    int spotIndex = Random.Range(0, roomSpots.Count);
-                    SpawnLocation randomSpot = roomSpots[spotIndex];
+                    SpawnLocation randomSpot = roomSpots[Random.Range(0, roomSpots.Count)];
                     int newRoomX = roomX;
                     int newRoomY = roomY;
                     switch (randomSpot)
@@ -116,7 +115,43 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
+        List<RoomData> sortedRooms = sortRoomsByDepth();
+        RoomData endingRoom = sortedRooms[0];
+        endingRoom.setEndRoom();
+
+        sortedRooms[1].setCoinRoom();
+        sortedRooms[2].setCoinRoom();
+        sortedRooms[3].setCoinRoom();
+
         return startingRoom;
+    }
+
+    public List<RoomData> sortRoomsByDepth()
+    {
+        List<RoomData> roomList = new List<RoomData>();
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                RoomData room = rooms[i, j];
+                if (room != null)
+                {
+                    roomList.Add(room);
+                }
+            }
+        }
+        roomList.Sort((room1, room2) => {
+            if (room1.depth == room2.depth)
+            {
+                return 0;
+            }
+            else if (room1.depth > room2.depth)
+            {
+                return -1;
+            }
+            return 1;
+        });
+        return roomList;
     }
 
     private void addRoom(RoomData room, int x, int y)
@@ -135,14 +170,9 @@ public class LevelGenerator : MonoBehaviour
         currentRoom = Instantiate(room, new Vector3(0, 0, 0), Quaternion.identity);
         currentRoom.transform.parent = this.transform;
 
-        RoomScript roomScript = currentRoom.GetComponent<RoomScript>();
         RoomData roomData = rooms[y, x];
-        bool roomUp = roomData.doorUp;
-        bool roomDown = roomData.doorDown;
-        bool roomRight = roomData.doorRight;
-        bool roomLeft = roomData.doorLeft;
-        roomScript.setDoors(roomUp, roomDown, roomRight, roomLeft, x, y, showRoom);
-        roomScript.setObstacle(roomData.obstacle);
+        RoomScript roomScript = currentRoom.GetComponent<RoomScript>();
+        roomScript.setupRoom(roomData, showRoom);
 
         musicPlayer.ChangePitch(roomData.speed);
 
@@ -192,12 +222,28 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int x=0; x<size; x++)
             {
-                if (positionAvailable(x, y))
+                RoomData room = rooms[y, x];
+                if (room == null)
                 {
                     map += "_";
                 } else
                 {
-                    map += "x";
+                    if (room.start)
+                    {
+                        map += "S";
+                    }
+                    else if (room.end)
+                    {
+                        map += "E";
+                    }
+                    else if (room.coin)
+                    {
+                        map += "C";
+                    }
+                    else
+                    {
+                        map += "x";
+                    }
                 }
                 map += " ";
             }
