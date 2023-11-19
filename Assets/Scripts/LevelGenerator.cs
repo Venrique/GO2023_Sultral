@@ -19,11 +19,22 @@ public class LevelGenerator : MonoBehaviour
     private RoomData[,] rooms;
     private Queue<RoomData> edgeRooms = new Queue<RoomData>();
     private GameObject currentRoom;
+    private RoomData currentRoomData;
 
     void Start() {
         RoomData startingRoom = generateLevel();
         printRooms();
         showRoom(startingRoom.x, startingRoom.y, SpawnLocation.CENTER);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            RoomScript roomScript = currentRoom.GetComponent<RoomScript>();
+            currentRoomData.complete = true;
+            roomScript.setRoomComplete(currentRoomData);
+        }
     }
 
     private RoomData generateLevel()
@@ -170,11 +181,11 @@ public class LevelGenerator : MonoBehaviour
         currentRoom = Instantiate(room, new Vector3(0, 0, 0), Quaternion.identity);
         currentRoom.transform.parent = this.transform;
 
-        RoomData roomData = rooms[y, x];
+        currentRoomData = rooms[y, x];
         RoomScript roomScript = currentRoom.GetComponent<RoomScript>();
-        roomScript.setupRoom(roomData, showRoom);
+        roomScript.setupRoom(currentRoomData, showRoom);
 
-        musicPlayer.ChangePitch(roomData.speed);
+        musicPlayer.ChangePitch(currentRoomData.speed);
 
         switch (spawnLocation)
         {

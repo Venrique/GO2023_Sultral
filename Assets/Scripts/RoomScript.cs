@@ -15,6 +15,11 @@ public class RoomScript : MonoBehaviour
     [SerializeField] private GameObject wallRightDoor;
     [SerializeField] private GameObject wallLeftDoor;
 
+    [SerializeField] private GameObject doorUpTrigger;
+    [SerializeField] private GameObject doorDownTrigger;
+    [SerializeField] private GameObject doorRightTrigger;
+    [SerializeField] private GameObject doorLeftTrigger;
+
     [SerializeField] private GameObject doorUp;
     [SerializeField] private GameObject doorDown;
     [SerializeField] private GameObject doorRight;
@@ -28,7 +33,7 @@ public class RoomScript : MonoBehaviour
 
     public void setupRoom(RoomData roomData, Action<int, int, LevelGenerator.SpawnLocation> onEnter)
     {
-        setDoors(roomData.doorUp, roomData.doorDown, roomData.doorRight, roomData.doorLeft, roomData.x, roomData.y, onEnter);
+        setDoors(roomData.doorUp, roomData.doorDown, roomData.doorRight, roomData.doorLeft, roomData.x, roomData.y, onEnter, roomData.complete);
         setObstacle(roomData.obstacle);
 
         if (roomData.end)
@@ -43,7 +48,31 @@ public class RoomScript : MonoBehaviour
         }
     }
 
-    private void setDoors(bool up, bool down, bool right, bool left, int roomX, int roomY, Action<int, int, LevelGenerator.SpawnLocation> onEnter)
+    public void setRoomComplete(RoomData roomData)
+    {
+        if (roomData.doorUp)
+        {
+            doorUp.SetActive(false);
+            doorUpTrigger.SetActive(true);
+        }
+        if (roomData.doorDown)
+        {
+            doorDown.SetActive(false);
+            doorDownTrigger.SetActive(true);
+        }
+        if (roomData.doorRight)
+        {
+            doorRight.SetActive(false);
+            doorRightTrigger.SetActive(true);
+        }
+        if (roomData.doorLeft)
+        {
+            doorLeft.SetActive(false);
+            doorLeftTrigger.SetActive(true);
+        }
+    }
+
+    private void setDoors(bool up, bool down, bool right, bool left, int roomX, int roomY, Action<int, int, LevelGenerator.SpawnLocation> onEnter, bool complete)
     {
         wallUpSolid.SetActive(true);
         wallDownSolid.SetActive(true);
@@ -55,6 +84,11 @@ public class RoomScript : MonoBehaviour
         wallRightDoor.SetActive(false);
         wallLeftDoor.SetActive(false);
 
+        doorUpTrigger.SetActive(false);
+        doorDownTrigger.SetActive(false);
+        doorRightTrigger.SetActive(false);
+        doorLeftTrigger.SetActive(false);
+
         doorUp.SetActive(false);
         doorDown.SetActive(false);
         doorRight.SetActive(false);
@@ -64,8 +98,17 @@ public class RoomScript : MonoBehaviour
         {
             wallUpSolid.SetActive(false);
             wallUpDoor.SetActive(true);
-            doorUp.SetActive(true);
-            DoorScript door = doorUp.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorUp.SetActive(false);
+                doorUpTrigger.SetActive(true);
+            } else
+            {
+                doorUp.SetActive(true);
+                doorUpTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorUpTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX;
             door.roomY = roomY - 1;
@@ -75,8 +118,18 @@ public class RoomScript : MonoBehaviour
         {
             wallDownSolid.SetActive(false);
             wallDownDoor.SetActive(true);
-            doorDown.SetActive(true);
-            DoorScript door = doorDown.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorDown.SetActive(false);
+                doorDownTrigger.SetActive(true);
+            }
+            else
+            {
+                doorDown.SetActive(true);
+                doorDownTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorDownTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX;
             door.roomY = roomY + 1;
@@ -86,8 +139,18 @@ public class RoomScript : MonoBehaviour
         {
             wallRightSolid.SetActive(false);
             wallRightDoor.SetActive(true);
-            doorRight.SetActive(true);
-            DoorScript door = doorRight.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorRight.SetActive(false);
+                doorRightTrigger.SetActive(true);
+            }
+            else
+            {
+                doorRight.SetActive(true);
+                doorRightTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorRightTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX + 1;
             door.roomY = roomY;
@@ -97,8 +160,18 @@ public class RoomScript : MonoBehaviour
         {
             wallLeftSolid.SetActive(false);
             wallLeftDoor.SetActive(true);
-            doorLeft.SetActive(true);
-            DoorScript door = doorLeft.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorLeft.SetActive(false);
+                doorLeftTrigger.SetActive(true);
+            }
+            else
+            {
+                doorLeft.SetActive(true);
+                doorLeftTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorLeftTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX - 1;
             door.roomY = roomY;
