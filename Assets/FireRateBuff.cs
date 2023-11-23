@@ -9,6 +9,6 @@ public class FireRateBuff : PowerupEffect
 
     public override void ApplyEffect(GameObject target)
     {
-        target.GetComponent<Movement>().fireRate += amount;
+        target.GetComponent<PlayerShoot>().fireRate += amount;
     }
 }
