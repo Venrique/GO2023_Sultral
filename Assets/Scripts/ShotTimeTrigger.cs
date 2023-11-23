@@ -8,7 +8,8 @@ public class ShotTimeTrigger : MonoBehaviour{
     bool beatPerformed = false;
 
     void Start() {
-        gameObject.GetComponent<Renderer>().material.color =  new Color(255,255,255);
+        //gameObject.GetComponent<Renderer>().material.color =  new Color(255,255,255);
+        
     }
 
     void Update() {
@@ -16,10 +17,10 @@ public class ShotTimeTrigger : MonoBehaviour{
         //Debug.Log(Mathf.Pow(2, 3));
         print(value+": "+AudioPeer._frequencyBand[value]);
         if ((AudioPeer._frequencyBand[value]) > 0.10 && offBeat == AudioPeer._offBeat && !beatPerformed) {
-            gameObject.GetComponent<Renderer>().material.color = new Color(255, 0, 0);
+            gameObject.GetComponent<PlayerShoot>().Shoot();
             beatPerformed = true;
         }else{
-            gameObject.GetComponent<Renderer>().material.color = new Color(255, 255, 255);
+            //gameObject.GetComponent<Renderer>().material.color = new Color(255, 255, 255);
             beatPerformed = false;
         }
     }

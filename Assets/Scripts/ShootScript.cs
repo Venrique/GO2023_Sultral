@@ -44,7 +44,7 @@ public class PlayerShoot : MonoBehaviour
         
     }
 
-    private void Shoot()
+    public void Shoot()
     {
 
         if (up)
