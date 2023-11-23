@@ -15,24 +15,64 @@ public class RoomScript : MonoBehaviour
     [SerializeField] private GameObject wallRightDoor;
     [SerializeField] private GameObject wallLeftDoor;
 
+    [SerializeField] private GameObject doorUpTrigger;
+    [SerializeField] private GameObject doorDownTrigger;
+    [SerializeField] private GameObject doorRightTrigger;
+    [SerializeField] private GameObject doorLeftTrigger;
+
     [SerializeField] private GameObject doorUp;
     [SerializeField] private GameObject doorDown;
     [SerializeField] private GameObject doorRight;
     [SerializeField] private GameObject doorLeft;
 
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject coin;
+    [SerializeField] private GameObject exit;
+
+    [SerializeField] private GameObject block;
+    [SerializeField] private GameObject wall;
+
+    public void setupRoom(RoomData roomData, Action<int, int, LevelGenerator.SpawnLocation> onEnter)
     {
-        
+        setDoors(roomData.doorUp, roomData.doorDown, roomData.doorRight, roomData.doorLeft, roomData.x, roomData.y, onEnter, roomData.complete);
+        setObstacle(roomData.obstacle);
+
+        if (roomData.end)
+        {
+            instantiateObject(exit, 0f, 0f);
+        }
+        else if (roomData.coin)
+        {
+            GameObject coinObject = instantiateObject(coin, 0f, 0f);
+            Coin coinScript = coinObject.GetComponent<Coin>();
+            coinScript.room = roomData;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setRoomComplete(RoomData roomData)
     {
-        
+        if (roomData.doorUp)
+        {
+            doorUp.SetActive(false);
+            doorUpTrigger.SetActive(true);
+        }
+        if (roomData.doorDown)
+        {
+            doorDown.SetActive(false);
+            doorDownTrigger.SetActive(true);
+        }
+        if (roomData.doorRight)
+        {
+            doorRight.SetActive(false);
+            doorRightTrigger.SetActive(true);
+        }
+        if (roomData.doorLeft)
+        {
+            doorLeft.SetActive(false);
+            doorLeftTrigger.SetActive(true);
+        }
     }
 
-    public void setDoors(bool up, bool down, bool right, bool left, int roomX, int roomY, Action<int, int, LevelGenerator.SpawnLocation> onEnter)
+    private void setDoors(bool up, bool down, bool right, bool left, int roomX, int roomY, Action<int, int, LevelGenerator.SpawnLocation> onEnter, bool complete)
     {
         wallUpSolid.SetActive(true);
         wallDownSolid.SetActive(true);
@@ -44,6 +84,11 @@ public class RoomScript : MonoBehaviour
         wallRightDoor.SetActive(false);
         wallLeftDoor.SetActive(false);
 
+        doorUpTrigger.SetActive(false);
+        doorDownTrigger.SetActive(false);
+        doorRightTrigger.SetActive(false);
+        doorLeftTrigger.SetActive(false);
+
         doorUp.SetActive(false);
         doorDown.SetActive(false);
         doorRight.SetActive(false);
@@ -53,30 +98,59 @@ public class RoomScript : MonoBehaviour
         {
             wallUpSolid.SetActive(false);
             wallUpDoor.SetActive(true);
-            doorUp.SetActive(true);
-            DoorScript door = doorUp.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorUp.SetActive(false);
+                doorUpTrigger.SetActive(true);
+            } else
+            {
+                doorUp.SetActive(true);
+                doorUpTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorUpTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX;
-            door.roomY = roomY + 1;
+            door.roomY = roomY - 1;
             door.spawnLocation = LevelGenerator.SpawnLocation.DOWN;
         }
         if (down)
         {
             wallDownSolid.SetActive(false);
             wallDownDoor.SetActive(true);
-            doorDown.SetActive(true);
-            DoorScript door = doorDown.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorDown.SetActive(false);
+                doorDownTrigger.SetActive(true);
+            }
+            else
+            {
+                doorDown.SetActive(true);
+                doorDownTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorDownTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX;
-            door.roomY = roomY - 1;
+            door.roomY = roomY + 1;
             door.spawnLocation = LevelGenerator.SpawnLocation.UP;
         }
         if (right)
         {
             wallRightSolid.SetActive(false);
             wallRightDoor.SetActive(true);
-            doorRight.SetActive(true);
-            DoorScript door = doorRight.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorRight.SetActive(false);
+                doorRightTrigger.SetActive(true);
+            }
+            else
+            {
+                doorRight.SetActive(true);
+                doorRightTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorRightTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX + 1;
             door.roomY = roomY;
@@ -86,12 +160,47 @@ public class RoomScript : MonoBehaviour
         {
             wallLeftSolid.SetActive(false);
             wallLeftDoor.SetActive(true);
-            doorLeft.SetActive(true);
-            DoorScript door = doorLeft.GetComponent<DoorScript>();
+            if (complete)
+            {
+                doorLeft.SetActive(false);
+                doorLeftTrigger.SetActive(true);
+            }
+            else
+            {
+                doorLeft.SetActive(true);
+                doorLeftTrigger.SetActive(false);
+            }
+
+            DoorScript door = doorLeftTrigger.GetComponent<DoorScript>();
             door.onEnter = onEnter;
             door.roomX = roomX - 1;
             door.roomY = roomY;
             door.spawnLocation = LevelGenerator.SpawnLocation.RIGHT;
         }
+    }
+
+    private void setObstacle(RoomData.Obstacle obstacle)
+    {
+        switch (obstacle)
+        {
+            case (RoomData.Obstacle.BLOCKS):
+                instantiateObject(block, 3, 1.5f);
+                instantiateObject(block, 3, -1.5f);
+                instantiateObject(block, -3, 1.5f);
+                instantiateObject(block, -3, -1.5f);
+                break;
+            case (RoomData.Obstacle.WALLS):
+                instantiateObject(wall, 3.5f, 1.5f);
+                instantiateObject(wall, -3.5f, -1.5f);
+                break;
+        }
+    }
+
+    private GameObject instantiateObject(GameObject gameObject, float x, float y)
+    {
+        GameObject instance = Instantiate(gameObject);
+        instance.transform.position = new Vector3(x, y, 0);
+        instance.transform.parent = this.transform;
+        return instance;
     }
 }

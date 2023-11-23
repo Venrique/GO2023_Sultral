@@ -23,6 +23,10 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+    }
+
+    void FixedUpdate()
+    {
         // Get the mouse cursor position in screen space
         Vector3 mousePosition = Input.mousePosition;
 
@@ -35,13 +39,14 @@ public class Movement : MonoBehaviour
 
         Vector3 direction = targetPosition - transform.position;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        float movement = moveSpeed * Time.deltaTime;
+        float movement = moveSpeed * Time.fixedDeltaTime;
         if (direction.magnitude > 0.1f)
         {
             rb.MovePosition(rb.position + new Vector2(direction.normalized.x, direction.normalized.y) * movement);
-        } else
+        }
+        else
         {
-           rb.velocity = new Vector2(0, 0);
+            rb.velocity = new Vector2(0, 0);
         }
     }
 }
