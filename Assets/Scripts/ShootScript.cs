@@ -46,11 +46,12 @@ public class PlayerShoot : MonoBehaviour
 
     public void Shoot()
     {
-
+        Vector3 verticalMargin = new Vector3(0,0.5f,0);
+        Vector3 horizontalMargin = new Vector3(0.5f,0,0);
         if (up)
         {
             if(bulletType == BulletType.type1){
-                Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 0));
+                Instantiate(BulletPrefab, transform.position+verticalMargin, Quaternion.Euler(0, 0, 0));
             }
 
             if(bulletType == BulletType.type2){
@@ -60,37 +61,37 @@ public class PlayerShoot : MonoBehaviour
 
         if (down)
         {
-            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 180));
+            Instantiate(BulletPrefab, transform.position - verticalMargin, Quaternion.Euler(0, 0, 180));
         }
 
         if (left)
         {
-            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 90));
+            Instantiate(BulletPrefab, transform.position - horizontalMargin, Quaternion.Euler(0, 0, 90));
         }
 
         if (right)
         {
-            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 270));
+            Instantiate(BulletPrefab, transform.position + horizontalMargin, Quaternion.Euler(0, 0, 270));
         }
 
         if (upLeft)
         {
-            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 45));
+            Instantiate(BulletPrefab, transform.position - horizontalMargin + verticalMargin, Quaternion.Euler(0, 0, 45));
         }
 
         if (upRight)
         {
-            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 315));
+            Instantiate(BulletPrefab, transform.position + horizontalMargin + verticalMargin, Quaternion.Euler(0, 0, 315));
         }
 
         if (downLeft)
         {
-            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 135));
+            Instantiate(BulletPrefab, transform.position - horizontalMargin - verticalMargin, Quaternion.Euler(0, 0, 135));
         }
 
         if (downRight)
         {
-            Instantiate(BulletPrefab, transform.position, Quaternion.Euler(0, 0, 225));
+            Instantiate(BulletPrefab, transform.position + horizontalMargin - verticalMargin, Quaternion.Euler(0, 0, 225));
         }
 
         /*

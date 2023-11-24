@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   points: []
-  moveSpeed: 3
+  moveSpeed: 2
 --- !u!61 &-8965566031445573383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -190,15 +190,15 @@ MonoBehaviour:
   BulletPrefab: {fileID: 4135270166378829121, guid: 569d27d7c875c524a9ab8d99618c6be3, type: 3}
   Bullet2t_0Prefab: {fileID: 0}
   bulletType: 0
-  fireRate: 1.1111e+12
+  fireRate: 3
   up: 1
   down: 1
   left: 1
   right: 1
-  upLeft: 0
-  upRight: 0
-  downLeft: 0
-  downRight: 0
+  upLeft: 1
+  upRight: 1
+  downLeft: 1
+  downRight: 1
 --- !u!114 &5545619934954902225
 MonoBehaviour:
   m_ObjectHideFlags: 0

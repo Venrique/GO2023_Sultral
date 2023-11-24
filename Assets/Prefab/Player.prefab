@@ -100,18 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11cec4dce9ac0e4ebf6f84d8148d08e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPrefab: {fileID: 2924482694940885227, guid: 61aafc3187d54b148a1b3d7d8ea4ef10, type: 3}
   bulletFrequency: 0
-  fireRate: 1
   moveSpeed: 5
-  up: 1
-  down: 0
-  left: 0
-  right: 0
-  upLeft: 0
-  upRight: 0
-  downLeft: 0
-  downRight: 0
 --- !u!58 &4531505979510996508
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -141,7 +131,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

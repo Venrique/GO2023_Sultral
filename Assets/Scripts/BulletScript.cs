@@ -19,6 +19,14 @@ public class BulletScript : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!other.gameObject.CompareTag("EnemyBullet"))
+        {
+            Destroy (gameObject);
+        }
+    }
+
     void OnBecameInvisible()
     {
         Destroy(gameObject);
