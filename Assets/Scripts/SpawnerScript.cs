@@ -12,6 +12,7 @@ public class EnemyPoints
 
 public class SpawnerScript : MonoBehaviour
 {
+    private int frequencyCounter = 0;
     public GameObject enemy;
     public int maxNumberEnemies;
     public float secondsToRespawnEnemy;
@@ -54,7 +55,8 @@ public class SpawnerScript : MonoBehaviour
     {
         //Vector3 offset = new Vector3(x, y, z);
         GameObject newEnemy = Instantiate(enemy, transform.position, Quaternion.identity);
-        newEnemy.GetComponent<ShotTimeTrigger>().value = UnityEngine.Random.Range(0, 8);
+        newEnemy.GetComponent<ShotTimeTrigger>().value = frequencyCounter%8;
+        frequencyCounter++;
         newEnemy.GetComponent<ShotTimeTrigger>().offBeat = false;
 
         return newEnemy;
