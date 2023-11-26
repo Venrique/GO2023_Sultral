@@ -416,7 +416,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 266336672}
   room: {fileID: 7693514289129140764, guid: 373203ac1ee22f6419f3fe6d8ddd549c, type: 3}
-  musicPlayer: {fileID: 879732767}
+  musicPlayer: {fileID: 1779599280}
 --- !u!4 &840924996
 Transform:
   m_ObjectHideFlags: 0
@@ -432,17 +432,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &879732767 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7739979168867542284, guid: 191ad74df2a068d4c9691cfedf52cae0, type: 3}
-  m_PrefabInstance: {fileID: 4651373828013750860}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58b09d5a5c1036249b71b706154a563e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &917228359
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,6 +720,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.16
+--- !u!1 &1779599280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7770169056425905955, guid: 191ad74df2a068d4c9691cfedf52cae0, type: 3}
+  m_PrefabInstance: {fileID: 4651373828013750860}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2044782037
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,7 +11,7 @@ public class LevelGenerator : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject room;
-    [SerializeField] private AudioPeer musicPlayer;
+    [SerializeField] private GameObject musicPlayer;
 
     private int size = 10;
     private int roomsTarget = 30;
@@ -22,6 +22,22 @@ public class LevelGenerator : MonoBehaviour
     private RoomData currentRoomData;
 
     void Start() {
+        AudioSource audioSource = musicPlayer.GetComponent<AudioSource>();
+        switch (GameData.level)
+        {
+            case 0:
+            case 1:
+                audioSource.clip = Resources.Load("Sounds/Moonwalk") as AudioClip;
+                break;
+            case 2:
+                audioSource.clip = Resources.Load("Sounds/Factory") as AudioClip;
+                break;
+            case 3:
+                audioSource.clip = Resources.Load("Sounds/Citadel") as AudioClip;
+                break;
+        }
+        audioSource.Play();
+
         RoomData startingRoom = generateLevel();
         printRooms();
         showRoom(startingRoom.x, startingRoom.y, SpawnLocation.CENTER);
@@ -185,7 +201,8 @@ public class LevelGenerator : MonoBehaviour
         RoomScript roomScript = currentRoom.GetComponent<RoomScript>();
         roomScript.setupRoom(currentRoomData, showRoom);
 
-        musicPlayer.ChangePitch(currentRoomData.speed);
+        AudioPeer audioPeer = musicPlayer.GetComponent<AudioPeer>();
+        audioPeer.ChangePitch(currentRoomData.speed);
 
         switch (spawnLocation)
         {
