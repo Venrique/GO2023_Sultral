@@ -13,35 +13,26 @@ public class Path : MonoBehaviour
 
     void Awake()
     {   
-       /*  finished = false;
-        List<GameObject> list = new List<GameObject>();
-        if(points.Length == 0){
-            int randomNumber = Random.Range(0, 3);
-            if(randomNumber == 0){
-                list.Add(GameObject.Find("GameObject"));
-                list.Add(GameObject.Find("GameObject (1)"));
-                transform.rotation = Quaternion.Euler(0f, 0f, 90f);
-            }else if(randomNumber >=1 && randomNumber <= 2){
-                list.Add(GameObject.Find("GameObject (" +randomNumber + ")"));
-                list.Add(GameObject.Find("GameObject (" +(randomNumber+1) + ")"));
-                if(randomNumber == 2){
-                    transform.rotation = Quaternion.Euler(0f, 0f, -90f);
-                }
-            }else{
-                list.Add(GameObject.Find("GameObject (" +randomNumber + ")"));
-                list.Add(GameObject.Find("GameObject"));
-                transform.rotation = Quaternion.Euler(0f, 0f, 180f); 
-            
-            }
-    
-            points = list.ToArray();
-        }
-
-        transform.position = points[pointsIndex].transform.position; */
+       
     }
 
     void Start()
     {   
+        if(points[0].name == "Point0" ){
+            transform.rotation = Quaternion.Euler(0,0, 0f);
+       }
+
+       if(points[0].name == "Point1" ){
+            transform.rotation = Quaternion.Euler(0,0, -90f);
+       }
+
+       if(points[0].name == "Point2" ){
+        transform.rotation = Quaternion.Euler(0,0, -180f);
+       }
+
+       if(points[0].name == "Point3" ){
+        transform.rotation = Quaternion.Euler(0,0, -270f);
+       }
         transform.position = points[pointsIndex].transform.position;
     }
 
