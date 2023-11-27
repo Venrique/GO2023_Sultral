@@ -36,11 +36,11 @@ public class Movement : MonoBehaviour
 
         // Move the player towards the mouse cursor
         // transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-
+        
         Vector3 direction = targetPosition - transform.position;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         float movement = moveSpeed * Time.fixedDeltaTime;
-        if (direction.magnitude > 0.1f)
+        if (direction.magnitude > 0.05f)
         {
             rb.MovePosition(rb.position + new Vector2(direction.normalized.x, direction.normalized.y) * movement);
         }

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4531505979510996508}
   - component: {fileID: 8703487874134740808}
   - component: {fileID: 7194814035868905479}
+  - component: {fileID: 2807741822330288279}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -177,3 +178,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coins: 0
+--- !u!114 &2807741822330288279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816543405880056242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49cfb6f5743cd2547b5f1a496d7bcb5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 2924482694940885227, guid: 61aafc3187d54b148a1b3d7d8ea4ef10, type: 3}
+  Bullet2t_0Prefab: {fileID: 0}
+  bulletType: 0
+  fireRate: 0.6
+  up: 1
+  down: 1
+  left: 1
+  right: 1
+  upLeft: 0
+  upRight: 0
+  downLeft: 0
+  downRight: 0

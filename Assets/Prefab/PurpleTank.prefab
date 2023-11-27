@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1380449242623397529}
   - component: {fileID: 4303623442654639756}
   - component: {fileID: 5545619934954902225}
+  - component: {fileID: -3223497935429199494}
   m_Layer: 0
   m_Name: PurpleTank
   m_TagString: Enemy
@@ -192,9 +193,9 @@ MonoBehaviour:
   bulletType: 0
   fireRate: 1000000
   up: 1
-  down: 1
-  left: 1
-  right: 1
+  down: 0
+  left: 0
+  right: 0
   upLeft: 0
   upRight: 0
   downLeft: 0
@@ -213,3 +214,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value: 0
   offBeat: 0
+--- !u!114 &-3223497935429199494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980643564291323899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfcb5ad868f20144a6e2ae7ffddeae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0

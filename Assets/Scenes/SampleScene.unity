@@ -231,6 +231,20 @@ MonoBehaviour:
   upRight: 0
   downLeft: 0
   downRight: 0
+--- !u!114 &266336690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266336672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfcb5ad868f20144a6e2ae7ffddeae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currentHealth: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,7 +972,7 @@ PrefabInstance:
     - target: {fileID: 7416006246356287242, guid: 191ad74df2a068d4c9691cfedf52cae0, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 8300000, guid: 4c5a825c76308bb4eb7c23a3331ccf56, type: 3}
+      objectReference: {fileID: 8300000, guid: 2cabfa4ce7f630348a883dd2031e11f0, type: 3}
     - target: {fileID: 7770169056425905955, guid: 191ad74df2a068d4c9691cfedf52cae0, type: 3}
       propertyPath: m_Name
       value: BGM
@@ -1031,6 +1045,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3816543405880056242, guid: 44229a559a4b6584f834da637e06fcfe, type: 3}
       insertIndex: -1
       addedObject: {fileID: 266336684}
+    - targetCorrespondingSourceObject: {fileID: 3816543405880056242, guid: 44229a559a4b6584f834da637e06fcfe, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 266336690}
   m_SourcePrefab: {fileID: 100100000, guid: 44229a559a4b6584f834da637e06fcfe, type: 3}
 --- !u!1001 &8110260197464216345
 PrefabInstance:

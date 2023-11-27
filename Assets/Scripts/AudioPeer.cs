@@ -8,7 +8,7 @@ public class AudioPeer : MonoBehaviour
     AudioSource _audioSource;
     float speedTarget = 1.0f;
     public static float[] _samples = new float[512];
-    public static float[] _frequencyBand = new float[8];
+    public static float[] _frequencyBand = new float[4];
     public static bool _offBeat = false;
     void Start()
     {
@@ -51,10 +51,10 @@ public class AudioPeer : MonoBehaviour
 
     void MakeFrequencyBands(){
         int count = 0;
-        for (int i = 0; i < 8; i++){
+        for (int i = 0; i < 4; i++){
             float average = 0;
             int sampleCount = (int)Mathf.Pow(2, i) * 2;
-            if (i == 7){
+            if (i == 3){
                 sampleCount += 2;
             }
             for (int j = 0; j < sampleCount; j++){
