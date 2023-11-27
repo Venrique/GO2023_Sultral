@@ -34,23 +34,19 @@ public class SpawnerScript : MonoBehaviour
         } */
     }
 
-
     IEnumerator SpawnEnemies()
     {
         Queue<EnemyPoints> enemiesQueue = CreateEnemiesQueue(maxNumberEnemies);
-        Debug.Log(enemiesQueue);
 
         foreach (var enemyPoints in enemiesQueue)
         {
-            
-            Debug.Log(enemyPoints.startPoint);
             GameObject newEnemy = SpawnEnemy();
             Path enemyScript = newEnemy.GetComponent<Path>();
             enemyScript.points = SetSpawnPoints(enemyPoints.startPoint, enemyPoints.endPoint);
             yield return new WaitForSeconds(secondsToRespawnEnemy);
-
         }
     }
+
     GameObject SpawnEnemy()
     {
         //Vector3 offset = new Vector3(x, y, z);
@@ -61,6 +57,7 @@ public class SpawnerScript : MonoBehaviour
 
         return newEnemy;
     }
+
     GameObject[] SetSpawnPoints(int startPoint, int endPoint)
     {
         var newEndpoint = endPoint;
@@ -107,10 +104,6 @@ public class SpawnerScript : MonoBehaviour
 
         return cola;
     }
-
-
-
-
 }
 
 

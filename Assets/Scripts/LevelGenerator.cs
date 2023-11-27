@@ -10,8 +10,9 @@ public class LevelGenerator : MonoBehaviour
     };
 
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject room;
     [SerializeField] private GameObject musicPlayer;
+    [SerializeField] private GameObject room;
+    [SerializeField] private GameObject enemySpawner;
 
     private int size = 10;
     private int roomsTarget = 30;
@@ -20,6 +21,7 @@ public class LevelGenerator : MonoBehaviour
     private Queue<RoomData> edgeRooms = new Queue<RoomData>();
     private GameObject currentRoom;
     private RoomData currentRoomData;
+    private List<GameObject> spawners = new List<GameObject>();
 
     void Start() {
         AudioSource audioSource = musicPlayer.GetComponent<AudioSource>();
@@ -192,6 +194,30 @@ public class LevelGenerator : MonoBehaviour
     private void showRoom(int x, int y, SpawnLocation spawnLocation)
     {
         player.SetActive(false);
+        foreach (GameObject spawner in spawners)
+        {
+            Destroy(spawner);
+        }
+        spawners = new List<GameObject>();
+
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
+        GameObject[] bullets = GameObject.FindGameObjectsWithTag("Bullet");
+        foreach (GameObject bullet in bullets)
+        {
+            Destroy(bullet);
+        }
+
+        GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");
+        foreach (GameObject enemyBullet in enemyBullets)
+        {
+            Destroy(enemyBullet);
+        }
+
         Destroy(currentRoom);
 
         currentRoom = Instantiate(room, new Vector3(0, 0, 0), Quaternion.identity);
@@ -204,6 +230,12 @@ public class LevelGenerator : MonoBehaviour
         AudioPeer audioPeer = musicPlayer.GetComponent<AudioPeer>();
         audioPeer.ChangePitch(currentRoomData.speed);
 
+        if (!currentRoomData.complete)
+        {
+            GameObject newSpawner = Instantiate(enemySpawner);
+            spawners.Add(newSpawner);
+        }
+        
         switch (spawnLocation)
         {
             case SpawnLocation.CENTER:
