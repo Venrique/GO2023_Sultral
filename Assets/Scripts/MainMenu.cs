@@ -22,4 +22,9 @@ public class MainMenu : MonoBehaviour
         GameData.level = level;
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void ExitGame() {
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
 }
