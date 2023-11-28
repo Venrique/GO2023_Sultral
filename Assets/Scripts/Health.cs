@@ -13,7 +13,10 @@ public class Health : MonoBehaviour
         if(maxHealth == 0){
             maxHealth =100;
             currentHealth = maxHealth;
+        }else{
+            currentHealth = maxHealth;
         }
+
     }
     void Start()
     {
