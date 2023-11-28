@@ -20,18 +20,22 @@ public class Path : MonoBehaviour
     {   
         if(points[0].name == "Point0" ){
             transform.rotation = Quaternion.Euler(0,0, 0f);
+            gameObject.GetComponent<PlayerShoot>().down = true;
        }
 
        if(points[0].name == "Point1" ){
             transform.rotation = Quaternion.Euler(0,0, -90f);
+            gameObject.GetComponent<PlayerShoot>().left = true;
        }
 
        if(points[0].name == "Point2" ){
         transform.rotation = Quaternion.Euler(0,0, -180f);
+        gameObject.GetComponent<PlayerShoot>().up = true;
        }
 
        if(points[0].name == "Point3" ){
         transform.rotation = Quaternion.Euler(0,0, -270f);
+        gameObject.GetComponent<PlayerShoot>().right = true;
        }
         transform.position = points[pointsIndex].transform.position;
     }

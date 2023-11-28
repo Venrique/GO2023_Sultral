@@ -22,7 +22,7 @@ public class BulletScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.gameObject.CompareTag("EnemyBullet"))
+        if (other.gameObject.tag != "EnemyBullet" && other.gameObject.tag != "Bullet")
         {
             Destroy (gameObject);
         }

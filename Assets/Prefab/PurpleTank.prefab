@@ -192,7 +192,7 @@ MonoBehaviour:
   Bullet2t_0Prefab: {fileID: 0}
   bulletType: 0
   fireRate: 1000000
-  up: 1
+  up: 0
   down: 0
   left: 0
   right: 0
