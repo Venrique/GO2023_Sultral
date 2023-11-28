@@ -35,8 +35,8 @@ public class BulletScript : MonoBehaviour
 
         if (other.gameObject.tag == "Player" && isEnemyBullet)
         {
-            Health enemyHealth = other.gameObject.GetComponent<Health>();
-            enemyHealth.TakeDamage(100);
+            HealthPlayer playerHealth = other.gameObject.GetComponent<HealthPlayer>();
+            playerHealth.TakeDamage(50);
         }
     }
 
