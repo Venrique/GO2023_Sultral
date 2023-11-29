@@ -6,9 +6,9 @@ public class Health : MonoBehaviour
 {
     public int maxHealth;
     public int currentHealth;
-    // Start is called before the first frame update
 
-    
+    [SerializeField] public GameObject flashSprite;
+
     void Awake(){
         if(maxHealth == 0){
             maxHealth =100;
@@ -30,9 +30,19 @@ public class Health : MonoBehaviour
     }
 
     public void TakeDamage(int damage){
+        StartCoroutine(flash());
+
         currentHealth -= damage;
         if(currentHealth <=0){
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator flash()
+    {
+        GetComponent<SpriteMask>().sprite = GetComponent<SpriteRenderer>().sprite;
+        flashSprite.SetActive(true);
+        yield return new WaitForSeconds(0.05f);
+        flashSprite.SetActive(false);
     }
 }
