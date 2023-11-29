@@ -9,6 +9,7 @@ public class HealthPlayer : MonoBehaviour
     // Start is called before the first frame update
     public HealthBar healthBar;
     
+    public GameOverScreen GameOverScreen;
     void Awake(){
         if(maxHealth == 0){
             maxHealth =100;
@@ -34,6 +35,11 @@ public class HealthPlayer : MonoBehaviour
         healthBar.SetHealth(currentHealth);
         if(currentHealth <=0){
             Destroy(gameObject);
+            GameOver();
         }
+    }
+
+    public void GameOver(){
+        GameOverScreen.Setup();
     }
 }
