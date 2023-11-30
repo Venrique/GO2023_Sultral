@@ -13,7 +13,7 @@ public class ShotTimeTrigger : MonoBehaviour{
     }
 
     void Update() {
-        if ((AudioPeer._frequencyBand[value]) > 0.25 && offBeat == AudioPeer._offBeat && !beatPerformed) {
+        if ((AudioPeer._frequencyBand[value]) > AudioPeer.sensitivity && offBeat == AudioPeer._offBeat && !beatPerformed) {
             gameObject.GetComponent<PlayerShoot>().Shoot();
             beatPerformed = true;
         }else{

@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\SpeedBuff.cs" />
     <Compile Include="Assets\Scripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\LevelExit.cs" />
+    <Compile Include="Assets\Scripts\GameOverScreen.cs" />
     <Compile Include="Assets\Scripts\PowerupEffect.cs" />
     <Compile Include="Assets\Scripts\Powerup.cs" />
     <Compile Include="Assets\Scripts\RoomData.cs" />
