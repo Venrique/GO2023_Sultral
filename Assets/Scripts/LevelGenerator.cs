@@ -14,6 +14,19 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject room;
     [SerializeField] private GameObject enemySpawner;
 
+    public static readonly int RATIO_CHANCE_A = 5;
+    public static readonly int RATIO_CHANCE_B = 30;
+    //                         ...
+    public static readonly int RATIO_CHANCE_N = 60;
+
+    public static readonly int RATIO_TOTAL = RATIO_CHANCE_A
+                                        + RATIO_CHANCE_B
+                                            // ...
+                                        + RATIO_CHANCE_N;
+    [SerializeField] public GameObject FireRateBuffPrefab;
+    [SerializeField] public GameObject SpeedUpBuffPrefab;
+    [SerializeField] public GameObject BulletsBuffPrefab;
+
     private int size = 10;
     private int roomsTarget = 30;
     private int generatedRooms = 0;
@@ -52,6 +65,26 @@ public class LevelGenerator : MonoBehaviour
             RoomScript roomScript = currentRoom.GetComponent<RoomScript>();
             currentRoomData.complete = true;
             roomScript.setRoomComplete(currentRoomData);
+
+            System.Random random = new System.Random();
+            int x = random.Next(0, RATIO_TOTAL);
+
+            if ((x -= RATIO_CHANCE_A) < 0) // Test for A
+            { 
+                Instantiate(BulletsBuffPrefab, transform.position, Quaternion.identity);
+            } 
+            else if ((x -= RATIO_CHANCE_B) < 0) // Test for B
+            { 
+                Instantiate(FireRateBuffPrefab, transform.position, Quaternion.identity);
+            }
+            // ... etc
+            else // No need for final if statement
+            { 
+                Instantiate(SpeedUpBuffPrefab, transform.position, Quaternion.identity);
+            }
+
+            
+
         }
     }
 
