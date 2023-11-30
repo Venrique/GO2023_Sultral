@@ -20,7 +20,9 @@ public class MainMenu : MonoBehaviour
     public void goToLevel(int level)
     {
         GameData.level = level;
+
         SceneManager.LoadScene("SampleScene");
+        LevelManager.Instance.currentLevel = level;
     }
 
     public void ExitGame() {

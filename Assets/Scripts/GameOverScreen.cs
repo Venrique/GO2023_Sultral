@@ -11,7 +11,8 @@ public class GameOverScreen : MonoBehaviour
     }
 
     public void RestartButton(int level){
-        GameData.level = level;
+        GameData.level = LevelManager.Instance.currentLevel;
+        
         SceneManager.LoadScene("SampleScene");
     }
 
