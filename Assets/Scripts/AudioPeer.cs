@@ -10,6 +10,7 @@ public class AudioPeer : MonoBehaviour
     public static float[] _samples = new float[512];
     public static float[] _frequencyBand = new float[8];
     public static bool _offBeat = false;
+    public static float sensitivity = 1;
     void Start()
     {
         _audioSource = GetComponent<AudioSource>();
