@@ -35,14 +35,8 @@ public class Movement : MonoBehaviour
         Vector2 targetPosition = mainCamera.ScreenToWorldPoint(mousePosition);
 
         // Move the player towards the mouse cursor
-        
+        transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
 
-        // detect if cursor is outisde of screen
-        Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
-        bool onScreen = screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
-        if(!onScreen){
-            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
-        }
 
         /*
         Vector3 direction = targetPosition - transform.position;
