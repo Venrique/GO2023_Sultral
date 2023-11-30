@@ -28,15 +28,23 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         // Get the mouse cursor position in screen space
-        Vector3 mousePosition = Input.mousePosition;
+        Vector2 mousePosition = Input.mousePosition;
 
         // Convert the screen position to a world position on the same plane as the player
-        mousePosition.z = transform.position.z - mainCamera.transform.position.z;
-        Vector3 targetPosition = mainCamera.ScreenToWorldPoint(mousePosition);
+        //mousePosition.z = transform.position.z - mainCamera.transform.position.z;
+        Vector2 targetPosition = mainCamera.ScreenToWorldPoint(mousePosition);
 
         // Move the player towards the mouse cursor
-        // transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
         
+
+        // detect if cursor is outisde of screen
+        Vector3 screenPoint = mainCamera.WorldToViewportPoint(transform.position);
+        bool onScreen = screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+        if(!onScreen){
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        }
+
+        /*
         Vector3 direction = targetPosition - transform.position;
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
         float movement = moveSpeed * Time.fixedDeltaTime;
@@ -48,5 +56,6 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
         }
+        */
     }
 }
