@@ -14,6 +14,8 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject room;
     [SerializeField] private GameObject purpleEnemySpawner;
     [SerializeField] private GameObject orangeEnemySpawner;
+    [SerializeField] private GameObject blueEnemySpawner;
+    [SerializeField] private GameObject redEnemySpawner;
 
     public static readonly int RATIO_CHANCE_A = 3;
     public static readonly int RATIO_CHANCE_B = 20;
@@ -299,10 +301,16 @@ public class LevelGenerator : MonoBehaviour
         {
             GameObject PurpleSpawner = Instantiate(purpleEnemySpawner);
             GameObject OrangeSpawner = Instantiate(orangeEnemySpawner);
+            GameObject BlueSpawner = Instantiate(blueEnemySpawner);
+            GameObject RedSpawner = Instantiate(redEnemySpawner);
             spawners.Add(PurpleSpawner);
             spawners.Add(OrangeSpawner);
+            spawners.Add(BlueSpawner);
+            spawners.Add(RedSpawner);
             requiredEnemyKills += PurpleSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
             requiredEnemyKills += OrangeSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
+            requiredEnemyKills += BlueSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
+            requiredEnemyKills += RedSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
         }
         
         /* switch (spawnLocation)
