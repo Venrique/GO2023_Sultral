@@ -10,6 +10,7 @@ public class LevelExit : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
+            GameData.saveGame();
             SceneManager.LoadScene("MenuScreen");
         }
     }

@@ -44,6 +44,7 @@ public class LevelGenerator : MonoBehaviour
 
     void Start() {
         GameData.enemyKills = 0;
+        GameData.coins = 0;
         AudioSource audioSource = musicPlayer.GetComponent<AudioSource>();
         switch (GameData.level)
         {
@@ -93,11 +94,11 @@ public class LevelGenerator : MonoBehaviour
             int x = random.Next(0, RATIO_TOTAL);
 
             if ((x -= RATIO_CHANCE_A) < 0) // Test for A
-            { 
+            {
                 Instantiate(BulletsBuffPrefab, transform.position, Quaternion.identity);
-            } 
+            }
             else if ((x -= RATIO_CHANCE_B) < 0) // Test for B
-            { 
+            {
                 Instantiate(FireRateBuffPrefab, transform.position, Quaternion.identity);
             }
             else if ((x -= RATIO_CHANCE_C) < 0) // Test for C
@@ -106,7 +107,7 @@ public class LevelGenerator : MonoBehaviour
             }
             // ... etc
             else // No need for final if statement
-            { 
+            {
                 Instantiate(SpeedUpBuffPrefab, transform.position, Quaternion.identity);
             }
         }

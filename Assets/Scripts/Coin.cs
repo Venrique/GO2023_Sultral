@@ -11,6 +11,7 @@ public class Coin : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<PlayerStatus>().coins += 1;
+            GameData.coins++;
             room.coin = false;
             Destroy(gameObject);
         }
