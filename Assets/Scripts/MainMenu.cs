@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] public Text[] coinsTexts;
+    public GameObject howToPlayCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -43,5 +44,13 @@ public class MainMenu : MonoBehaviour
     public void ExitGame() {
         Application.Quit();
         //UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void OpenHowToPlay(){
+        howToPlayCanvas.SetActive(true);
+    }
+
+    public void CloseHowToPlay(){
+        howToPlayCanvas.SetActive(false);
     }
 }
