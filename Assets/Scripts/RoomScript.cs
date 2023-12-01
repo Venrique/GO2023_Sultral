@@ -25,6 +25,11 @@ public class RoomScript : MonoBehaviour
     [SerializeField] private GameObject doorRight;
     [SerializeField] private GameObject doorLeft;
 
+    [SerializeField] private GameObject invisibleWallUp;
+    [SerializeField] private GameObject invisibleWallDown;
+    [SerializeField] private GameObject invisibleWallRight;
+    [SerializeField] private GameObject invisibleWallLeft;
+
     [SerializeField] private GameObject coin;
     [SerializeField] private GameObject exit;
 
@@ -70,6 +75,11 @@ public class RoomScript : MonoBehaviour
             doorLeft.SetActive(false);
             doorLeftTrigger.SetActive(true);
         }
+
+        invisibleWallUp.SetActive(false);
+        invisibleWallDown.SetActive(false);
+        invisibleWallRight.SetActive(false);
+        invisibleWallLeft.SetActive(false);
     }
 
     private void setDoors(bool up, bool down, bool right, bool left, int roomX, int roomY, Action<int, int, LevelGenerator.SpawnLocation> onEnter, bool complete)
@@ -93,6 +103,18 @@ public class RoomScript : MonoBehaviour
         doorDown.SetActive(false);
         doorRight.SetActive(false);
         doorLeft.SetActive(false);
+
+        invisibleWallUp.SetActive(false);
+        invisibleWallDown.SetActive(false);
+        invisibleWallRight.SetActive(false);
+        invisibleWallLeft.SetActive(false);
+        if (!complete)
+        {
+            invisibleWallUp.SetActive(true);
+            invisibleWallDown.SetActive(true);
+            invisibleWallRight.SetActive(true);
+            invisibleWallLeft.SetActive(true);
+        }
 
         if (up)
         {
