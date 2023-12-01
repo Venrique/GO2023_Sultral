@@ -53,11 +53,11 @@ public class LevelGenerator : MonoBehaviour
             case 0:
             case 1:
                 audioSource.clip = Resources.Load("Sounds/Moonwalk") as AudioClip;
-                AudioPeer.sensitivity = 0.25f;
+                AudioPeer.sensitivity = 0.28f;
                 break;
             case 2:
                 audioSource.clip = Resources.Load("Sounds/Factory") as AudioClip;
-                AudioPeer.sensitivity = 0.20f;
+                AudioPeer.sensitivity = 0.22f;
                 break;
             case 3:
                 audioSource.clip = Resources.Load("Sounds/Citadel") as AudioClip;
@@ -65,15 +65,15 @@ public class LevelGenerator : MonoBehaviour
                 break;
             case 4:
                 audioSource.clip = Resources.Load("Sounds/Moonwalk") as AudioClip;
-                AudioPeer.sensitivity = 0.10f;
+                AudioPeer.sensitivity = 0.20f;
                 break;
             case 5:
                 audioSource.clip = Resources.Load("Sounds/Factory") as AudioClip;
-                AudioPeer.sensitivity = 0.16f;
+                AudioPeer.sensitivity = 0.17f;
                 break;
             case 6:
                 audioSource.clip = Resources.Load("Sounds/Citadel") as AudioClip;
-                AudioPeer.sensitivity = 0.26f;
+                AudioPeer.sensitivity = 0.25f;
                 break;
         }
         audioSource.Play();

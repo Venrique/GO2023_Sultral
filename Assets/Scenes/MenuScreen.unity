@@ -201,17 +201,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6655764}
   m_CullTransparentMesh: 1
---- !u!114 &14484635 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
-  m_PrefabInstance: {fileID: 2040437463}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &21410480
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,17 +329,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &138263917 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
-  m_PrefabInstance: {fileID: 1068156715}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &140823494
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,17 +586,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7212661140945812969, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
   m_PrefabInstance: {fileID: 2040437463}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &916237763 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
-  m_PrefabInstance: {fileID: 1547786858}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1005363803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -841,17 +808,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1040442198 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
-  m_PrefabInstance: {fileID: 1947135563}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1068156715
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1247,13 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a538bc1614724f810c97b33707b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsTexts:
-  - {fileID: 2083689608}
-  - {fileID: 14484635}
-  - {fileID: 1500718595}
-  - {fileID: 1040442198}
-  - {fileID: 138263917}
-  - {fileID: 916237763}
+  coinsTexts: []
 --- !u!1 &1370123431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1503,17 +1453,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1457720708}
   m_CullTransparentMesh: 1
---- !u!114 &1500718595 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
-  m_PrefabInstance: {fileID: 1005363803}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1547786858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1525,10 +1464,6 @@ PrefabInstance:
     - target: {fileID: 609756097516110849, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0.2999878
-      objectReference: {fileID: 0}
-    - target: {fileID: 2192915921401163770, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2498372027854793062, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
@@ -2692,17 +2627,6 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &2083689608 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
-  m_PrefabInstance: {fileID: 1798751215}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2142697605 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7212661140945812969, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}

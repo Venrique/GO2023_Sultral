@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1980643564291323899, guid: 53e661d63e6c890419e49bded4603dc9, type: 3}
-  maxNumberEnemies: 4
+  maxNumberEnemies: 8
   secondsToRespawnEnemy: 0.2
