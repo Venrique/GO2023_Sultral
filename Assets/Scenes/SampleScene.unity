@@ -689,6 +689,8 @@ MonoBehaviour:
   room: {fileID: 7693514289129140764, guid: 373203ac1ee22f6419f3fe6d8ddd549c, type: 3}
   purpleEnemySpawner: {fileID: 3635551576432889635, guid: ccee69ed701d80a46b46e506f5ee96fc, type: 3}
   orangeEnemySpawner: {fileID: 3635551576432889635, guid: d5fa4cd897a50844ab941248d3300774, type: 3}
+  blueEnemySpawner: {fileID: 3635551576432889635, guid: f87201b5f1476804694b8cdb907e7b5f, type: 3}
+  redEnemySpawner: {fileID: 3635551576432889635, guid: d6d68c0fe5eea8e498f5cde65bfd4ae7, type: 3}
   FireRateBuffPrefab: {fileID: 3507221519801356791, guid: 08a46e9e9c6d40441a0fac132957a2ca, type: 3}
   SpeedUpBuffPrefab: {fileID: 623962031711768055, guid: 978cd2d27de66274fa9a1da25eae6c71, type: 3}
   BulletsBuffPrefab: {fileID: 3092058432806860142, guid: af149acc99a721742bcb12de8cba4b7e, type: 3}
@@ -1567,7 +1569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7516468183706985879, guid: 44229a559a4b6584f834da637e06fcfe, type: 3}
       propertyPath: moveSpeed
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8703487874134740808, guid: 44229a559a4b6584f834da637e06fcfe, type: 3}
       propertyPath: m_CollisionDetection
