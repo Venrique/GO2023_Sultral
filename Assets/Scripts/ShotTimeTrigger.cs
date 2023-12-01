@@ -38,8 +38,9 @@ public class ShotTimeTrigger : MonoBehaviour{
             value = tempValue;
         }
 
+        bool pause = gameObject.GetComponent<PauseGame>().isPaused;
 
-        if ((AudioPeer._frequencyBand[value]) > AudioPeer.sensitivity && offBeat == AudioPeer._offBeat && !beatPerformed) {
+        if ((AudioPeer._frequencyBand[value]) > AudioPeer.sensitivity && offBeat == AudioPeer._offBeat && !beatPerformed && !pause) {
             gameObject.GetComponent<PlayerShoot>().Shoot();
             lastShot = 0;
             beatPerformed = true;
