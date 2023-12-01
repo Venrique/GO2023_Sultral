@@ -6,7 +6,7 @@ using UnityEngine;
 public class AudioPeer : MonoBehaviour
 {
     AudioSource _audioSource;
-    float speedTarget = 1.0f;
+    public static float speedTarget = 1.0f;
     public static float[] _samples = new float[512];
     public static float[] _frequencyBand = new float[8];
     public static bool _offBeat = false;
@@ -42,7 +42,7 @@ public class AudioPeer : MonoBehaviour
 
     void TriggerPitchChange()
     {
-        speedTarget = Random.Range(0.5f, 1.5f);
+        speedTarget = Random.Range(0.8f, 1.1f);
     }
 
     public void ChangePitch(float pitch)

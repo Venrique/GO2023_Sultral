@@ -24,7 +24,7 @@ public class ShotTimeTrigger : MonoBehaviour{
             lastShot++;
         }
 
-        if (lastShot > 15) {
+        if (lastShot > 10) {
             int r = Random.Range(0, 2);
             int tempValue = value;
             if (r == 0) {
@@ -36,6 +36,7 @@ public class ShotTimeTrigger : MonoBehaviour{
                 tempValue = tempValue *-1;
             }
             value = tempValue;
+            lastShot = 0;
         }
 
         //bool pause = gameObject.GetComponent<PauseGame>().isPaused;

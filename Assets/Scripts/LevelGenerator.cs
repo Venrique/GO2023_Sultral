@@ -53,7 +53,7 @@ public class LevelGenerator : MonoBehaviour
             case 0:
             case 1:
                 audioSource.clip = Resources.Load("Sounds/Moonwalk") as AudioClip;
-                AudioPeer.sensitivity = 0.28f;
+                AudioPeer.sensitivity = 0.33f;
                 break;
             case 2:
                 audioSource.clip = Resources.Load("Sounds/Factory") as AudioClip;
@@ -313,7 +313,7 @@ public class LevelGenerator : MonoBehaviour
             requiredEnemyKills += RedSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
         }
         
-        /* switch (spawnLocation)
+        switch (spawnLocation)
         {
             case SpawnLocation.CENTER:
                 player.transform.position = new Vector3(0, 0, 0);
@@ -330,8 +330,8 @@ public class LevelGenerator : MonoBehaviour
             case SpawnLocation.LEFT:
                 player.transform.position = new Vector3(-4, 0, 0);
                 break;
-        } */
-        player.transform.position = new Vector3(0, 0, 0);
+        }
+        //player.transform.position = new Vector3(0, 0, 0);
         player.SetActive(true);
     }
 
@@ -394,7 +394,7 @@ public class LevelGenerator : MonoBehaviour
     {
         float currentPlayerSpeed = player.GetComponent<Movement>().moveSpeed;
         player.GetComponent<Movement>().moveSpeed = 0;
-        player.transform.position = new Vector3(0, 0, 0);
+        //player.transform.position = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(secondsToWait);
         player.GetComponent<Movement>().moveSpeed = currentPlayerSpeed;
 
