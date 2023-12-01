@@ -117,6 +117,7 @@ public class LevelGenerator : MonoBehaviour
 
     private RoomData generateLevel()
     {
+        //StartCoroutine(WaitMovement(2));
         generatedRooms = 0;
         rooms = new RoomData[size, size];
 
@@ -127,7 +128,7 @@ public class LevelGenerator : MonoBehaviour
         startingRoom.obstacle = RoomData.Obstacle.WALLS;
         addRoom(startingRoom, x, y);
         edgeRooms.Enqueue(startingRoom);
-
+        
         while (edgeRooms.Count != 0 && generatedRooms < roomsTarget)
         {
             RoomData edgeRoom = edgeRooms.Dequeue();
@@ -253,6 +254,10 @@ public class LevelGenerator : MonoBehaviour
 
     private void showRoom(int x, int y, SpawnLocation spawnLocation)
     {
+        float wait = 0.5f;
+        StartCoroutine(WaitMovement(wait));
+        
+        
         player.SetActive(false);
         foreach (GameObject spawner in spawners)
         {
@@ -308,7 +313,7 @@ public class LevelGenerator : MonoBehaviour
             requiredEnemyKills += RedSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
         }
         
-        switch (spawnLocation)
+        /* switch (spawnLocation)
         {
             case SpawnLocation.CENTER:
                 player.transform.position = new Vector3(0, 0, 0);
@@ -325,8 +330,8 @@ public class LevelGenerator : MonoBehaviour
             case SpawnLocation.LEFT:
                 player.transform.position = new Vector3(-4, 0, 0);
                 break;
-        }
-
+        } */
+        player.transform.position = new Vector3(0, 0, 0);
         player.SetActive(true);
     }
 
@@ -382,5 +387,17 @@ public class LevelGenerator : MonoBehaviour
             map += "\n";
         }
         Debug.Log(map);
+    }
+
+
+    IEnumerator WaitMovement(float secondsToWait)
+    {
+        float currentPlayerSpeed = player.GetComponent<Movement>().moveSpeed;
+        player.GetComponent<Movement>().moveSpeed = 0;
+        player.transform.position = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(secondsToWait);
+        player.GetComponent<Movement>().moveSpeed = currentPlayerSpeed;
+
+    
     }
 }
