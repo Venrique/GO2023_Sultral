@@ -34,9 +34,11 @@ public class LevelGenerator : MonoBehaviour
     private Queue<RoomData> edgeRooms = new Queue<RoomData>();
     private GameObject currentRoom;
     private RoomData currentRoomData;
+    private int requiredEnemyKills = 0;
     private List<GameObject> spawners = new List<GameObject>();
 
     void Start() {
+        GameData.enemyKills = 0;
         AudioSource audioSource = musicPlayer.GetComponent<AudioSource>();
         switch (GameData.level)
         {
@@ -75,8 +77,9 @@ public class LevelGenerator : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (GameData.enemyKills >= requiredEnemyKills && !currentRoomData.complete)
         {
+            GameData.enemyKills = 0;
             RoomScript roomScript = currentRoom.GetComponent<RoomScript>();
             currentRoomData.complete = true;
             roomScript.setRoomComplete(currentRoomData);
@@ -97,9 +100,6 @@ public class LevelGenerator : MonoBehaviour
             { 
                 Instantiate(SpeedUpBuffPrefab, transform.position, Quaternion.identity);
             }
-
-            
-
         }
     }
 
@@ -278,10 +278,13 @@ public class LevelGenerator : MonoBehaviour
         AudioPeer audioPeer = musicPlayer.GetComponent<AudioPeer>();
         audioPeer.ChangePitch(currentRoomData.speed);
 
+        GameData.enemyKills = 0;
+        requiredEnemyKills = 0;
         if (!currentRoomData.complete)
         {
             GameObject newSpawner = Instantiate(enemySpawner);
             spawners.Add(newSpawner);
+            requiredEnemyKills += newSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
         }
         
         switch (spawnLocation)
