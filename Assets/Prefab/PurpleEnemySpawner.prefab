@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3804640311159574483}
   - component: {fileID: 1638613816685481654}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: PurpleEnemySpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbdd3ecc2c61cb04ca0a68f02d421272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1980643564291323899, guid: 4f69186c5d7be7c4086bfc73596c6e1b, type: 3}
+  enemy: {fileID: 1980643564291323899, guid: 8585e7b2ab60ccc489fb74bb73bc9910, type: 3}
   maxNumberEnemies: 16
   secondsToRespawnEnemy: 0.7

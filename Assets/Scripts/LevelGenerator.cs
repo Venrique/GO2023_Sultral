@@ -12,20 +12,25 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject musicPlayer;
     [SerializeField] private GameObject room;
-    [SerializeField] private GameObject enemySpawner;
+    [SerializeField] private GameObject purpleEnemySpawner;
+    [SerializeField] private GameObject orangeEnemySpawner;
 
-    public static readonly int RATIO_CHANCE_A = 5;
-    public static readonly int RATIO_CHANCE_B = 30;
+    public static readonly int RATIO_CHANCE_A = 3;
+    public static readonly int RATIO_CHANCE_B = 20;
+
+    public static readonly int RATIO_CHANCE_C = 30;
     //                         ...
-    public static readonly int RATIO_CHANCE_N = 60;
+    public static readonly int RATIO_CHANCE_N = 47;
 
     public static readonly int RATIO_TOTAL = RATIO_CHANCE_A
                                         + RATIO_CHANCE_B
+                                        + RATIO_CHANCE_C
                                             // ...
                                         + RATIO_CHANCE_N;
     [SerializeField] public GameObject FireRateBuffPrefab;
     [SerializeField] public GameObject SpeedUpBuffPrefab;
     [SerializeField] public GameObject BulletsBuffPrefab;
+    [SerializeField] public GameObject RegenBuffPrefab;
 
     private int size = 10;
     private int roomsTarget = 30;
@@ -94,6 +99,10 @@ public class LevelGenerator : MonoBehaviour
             else if ((x -= RATIO_CHANCE_B) < 0) // Test for B
             { 
                 Instantiate(FireRateBuffPrefab, transform.position, Quaternion.identity);
+            }
+            else if ((x -= RATIO_CHANCE_C) < 0) // Test for C
+            { 
+                Instantiate(RegenBuffPrefab, transform.position, Quaternion.identity);
             }
             // ... etc
             else // No need for final if statement
@@ -282,9 +291,12 @@ public class LevelGenerator : MonoBehaviour
         requiredEnemyKills = 0;
         if (!currentRoomData.complete)
         {
-            GameObject newSpawner = Instantiate(enemySpawner);
-            spawners.Add(newSpawner);
-            requiredEnemyKills += newSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
+            GameObject PurpleSpawner = Instantiate(purpleEnemySpawner);
+            GameObject OrangeSpawner = Instantiate(orangeEnemySpawner);
+            spawners.Add(PurpleSpawner);
+            spawners.Add(OrangeSpawner);
+            requiredEnemyKills += PurpleSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
+            requiredEnemyKills += OrangeSpawner.GetComponent<SpawnerScript>().maxNumberEnemies;
         }
         
         switch (spawnLocation)

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e514023e4b3beca49b76cbf06b637c08
+guid: eac29c76189449e4f949dfa2185c36a6
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Enemy_Purple_Tank_Hexagon_Move_Right-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 7
+        width: 116
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c9d04c97fb22514c889ad20108e8036
+      internalID: 1965883697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Purple_Tank_Hexagon_Move_Right-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 7
+        width: 116
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef783432a6907eb469c79ec05491da5a
+      internalID: -1397799609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Purple_Tank_Hexagon_Move_Right-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 7
+        width: 116
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d211f2d9cf4f944ab8f4e11596622e3
+      internalID: 461314982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +195,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Enemy_Purple_Tank_Hexagon_Move_Right-Sheet_0: 1965883697
+      Enemy_Purple_Tank_Hexagon_Move_Right-Sheet_1: -1397799609
+      Enemy_Purple_Tank_Hexagon_Move_Right-Sheet_2: 461314982
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
