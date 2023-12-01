@@ -321,7 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfcb5ad868f20144a6e2ae7ffddeae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 300
+  maxHealth: 200
   currentHealth: 0
   flashSprite: {fileID: 412216675958706832}
 --- !u!331 &4160195114902646714

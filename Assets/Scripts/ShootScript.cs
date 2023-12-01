@@ -36,9 +36,9 @@ public class PlayerShoot : MonoBehaviour
     void Update()
     {
 
-        bool pause = BulletPrefab.GetComponent<PauseGame>().isPaused;
+        //bool pause = BulletPrefab.GetComponent<PauseGame>().isPaused;
 
-        if ((Time.time - lastSpawned > fireRate) && !pause)
+        if ((Time.time - lastSpawned > fireRate))
         {
             lastSpawned = Time.time;
             Shoot();

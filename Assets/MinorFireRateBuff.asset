@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c49786f7dcb9fa479b5eb0694203a56, type: 3}
   m_Name: MinorFireRateBuff
   m_EditorClassIdentifier: 
-  amount: -0.1
+  amount: -0.3

@@ -17,12 +17,12 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private GameObject blueEnemySpawner;
     [SerializeField] private GameObject redEnemySpawner;
 
-    public static readonly int RATIO_CHANCE_A = 3;
-    public static readonly int RATIO_CHANCE_B = 20;
+    public static readonly int RATIO_CHANCE_A = 10;
+    public static readonly int RATIO_CHANCE_B = 30;
 
     public static readonly int RATIO_CHANCE_C = 30;
     //                         ...
-    public static readonly int RATIO_CHANCE_N = 47;
+    public static readonly int RATIO_CHANCE_N = 30;
 
     public static readonly int RATIO_TOTAL = RATIO_CHANCE_A
                                         + RATIO_CHANCE_B
