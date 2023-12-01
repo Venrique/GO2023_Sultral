@@ -164,8 +164,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -78.8, y: 163.2}
-  m_SizeDelta: {x: 274.065, y: 342.5758}
+  m_AnchoredPosition: {x: -73, y: 170.87}
+  m_SizeDelta: {x: 320, y: 341.7461}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &6655766
 MonoBehaviour:
@@ -581,6 +581,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &591293096 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+  m_PrefabInstance: {fileID: 1947135563}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &605474264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+  m_PrefabInstance: {fileID: 1005363803}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &646081038
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -812,6 +834,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &761949610 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+  m_PrefabInstance: {fileID: 2040437463}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &863356220 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7212661140945812969, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
@@ -972,6 +1005,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -998,7 +1039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 223.8621
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1194,6 +1235,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1220,7 +1269,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 223.8621
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1437,6 +1486,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7212661140945812969, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
   m_PrefabInstance: {fileID: 1798751215}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1317460527 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+  m_PrefabInstance: {fileID: 1798751215}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1348206783
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1717,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604a538bc1614724f810c97b33707b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinsTexts: []
+  coinsTexts:
+  - {fileID: 1317460527}
+  - {fileID: 761949610}
+  - {fileID: 605474264}
+  - {fileID: 591293096}
+  - {fileID: 1652254514}
+  - {fileID: 2014106324}
   howToPlayCanvas: {fileID: 1348206783}
 --- !u!1 &1370123431
 GameObject:
@@ -1989,6 +2055,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2015,7 +2089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 223.8621
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2177,6 +2251,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1652254514 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+  m_PrefabInstance: {fileID: 1068156715}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1735354140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7212661140945812969, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
@@ -2308,6 +2393,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2334,7 +2427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 223.8621
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2691,7 +2784,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 609756097516110849, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.2999878
+      value: 0.29992676
       objectReference: {fileID: 0}
     - target: {fileID: 2498372027854793062, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Colors.m_PressedColor.b
@@ -2761,6 +2854,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2787,7 +2888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 223.8621
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3100,6 +3201,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &2014106324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+  m_PrefabInstance: {fileID: 1547786858}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2040437463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3180,6 +3292,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235394519929185097, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3206,7 +3326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 223.8621
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5264796334345194864, guid: f8ef85abd67b8244596d72f0a03fd0ec, type: 3}
       propertyPath: m_SizeDelta.y
