@@ -53,7 +53,7 @@ public class LevelGenerator : MonoBehaviour
             case 0:
             case 1:
                 audioSource.clip = Resources.Load("Sounds/Moonwalk") as AudioClip;
-                AudioPeer.sensitivity = 0.33f;
+                AudioPeer.sensitivity = 0.28f;
                 break;
             case 2:
                 audioSource.clip = Resources.Load("Sounds/Factory") as AudioClip;
@@ -69,7 +69,7 @@ public class LevelGenerator : MonoBehaviour
                 break;
             case 5:
                 audioSource.clip = Resources.Load("Sounds/Factory") as AudioClip;
-                AudioPeer.sensitivity = 0.17f;
+                AudioPeer.sensitivity = 0.16f;
                 break;
             case 6:
                 audioSource.clip = Resources.Load("Sounds/Citadel") as AudioClip;
@@ -158,7 +158,7 @@ public class LevelGenerator : MonoBehaviour
                 int numRooms = Mathf.Min(Random.Range(1, roomSpots.Count + 1), roomsTarget - generatedRooms);
                 for (int i = 0; i < numRooms; i++)
                 {
-                    RoomData newRoom = new RoomData(edgeRoom.depth + 1, Random.Range(0.5f, 1.5f));
+                    RoomData newRoom = new RoomData(edgeRoom.depth + 1, Random.Range(0.8f, 1.2f));
 
                     SpawnLocation randomSpot = roomSpots[Random.Range(0, roomSpots.Count)];
                     int newRoomX = roomX;
